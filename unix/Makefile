@@ -32,7 +32,7 @@ TOBJFILES = $(CFILES:.c=$(INTER).o) $(CPPFILES:.cpp=$(INTER).o)
 DEPFILES = $(OBJFILES:.o=.d)
 TEST_CPPFILES = $(wildcard ../tests/*.cpp)
 TEST_OBJFILES = $(TEST_CPPFILES:.cpp=.o)
-SDL_CONFIG = pkg-config sdl3
+SDL_CONFIG = pkg-config sdl2
 
 
 FLTK_INSTALLED := $(shell command -v fltk-config 2> /dev/null)
@@ -49,7 +49,7 @@ endif
 
 CC = $(HOST)gcc
 CXX = $(HOST)g++
-override CCFLAGS += `$(SDL_CONFIG) --cflags` -DUSE_SDL3=1 -I../sdl_compat -D_GNU_SOURCE -g -Wall -O2 -fno-strict-aliasing $(EXTRA_CCFLAGS) $(TEST_CCFLAGS) $(GENERATED)
+override CCFLAGS += `$(SDL_CONFIG) --cflags` -I../sdl_compat -I../liboggvorbis/src -I../libopusfile/celt -I../libopusfile/silk -I../libopusfile/silk/float -DOPUS_BUILD -DVAR_ARRAYS -D_GNU_SOURCE -g -Wall -O2 -fno-strict-aliasing $(EXTRA_CCFLAGS) $(TEST_CCFLAGS) $(GENERATED)
 CXXFLAGS = $(CCFLAGS) -std=c++11 $(FLTK_CXXFLAGS)
 CFLAGS = $(CCFLAGS) -std=gnu99 $(FLTK_CFLAGS)
 LDFLAGS = `$(SDL_CONFIG) --libs` $(FLTK_LDFLAGS) $(MIDI_LDFLAGS) -lstdc++ -lm
