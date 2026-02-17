@@ -31,6 +31,14 @@ python3 add_magic_safe.py ../unix/1.rpg
 
 输入已知的魔法 ID 来添加（必须是游戏中真实存在的 ID）。
 
+### 4. 启用穿墙功能 🆕
+
+```bash
+python3 enable_noclip.py
+```
+
+自动修改源代码并重新编译，启用穿墙功能。
+
 ---
 
 ## 📁 文件说明
@@ -49,8 +57,14 @@ python3 add_magic_safe.py ../unix/1.rpg
   - 只读模式，安全可靠
 
 - **`add_magic_safe.py`** - 魔法添加器
+
   - 使用真实魔法 ID 添加
   - 自动备份
+
+- **`enable_noclip.py`** - 穿墙功能启用器 🆕
+  - 自动修改源代码
+  - 支持两种模式：始终开启/按键切换
+  - 自动编译和恢复
 
 ### 文档
 
@@ -61,9 +75,15 @@ python3 add_magic_safe.py ../unix/1.rpg
   - 技术细节
 
 - **`魔法技能说明.md`** - 魔法系统说明
+
   - 已知魔法 ID 列表
   - 使用方法
   - 注意事项
+
+- **`enable_noclip.md`** - 穿墙功能详细指南 🆕
+  - 三种实现方法
+  - 源代码修改说明
+  - 注意事项和警告
 
 ---
 
@@ -194,9 +214,43 @@ cd cheat_tools && python3 sdlpal_cheat_final.py ../unix/1.rpg
 # 查看魔法
 python3 view_magic.py ../unix/1.rpg
 
+# 启用穿墙（修改源代码）
+python3 enable_noclip.py
+
 # 恢复存档
 cp unix/1.rpg.backup unix/1.rpg
 ```
+
+---
+
+## 🚶 穿墙功能说明 🆕
+
+穿墙功能需要修改游戏源代码并重新编译。
+
+### 快速启用
+
+```bash
+cd cheat_tools
+python3 enable_noclip.py
+```
+
+选择 `1` 启用始终穿墙模式（最简单）。
+
+### 功能特点
+
+- ✅ 可以穿过所有墙壁和障碍物
+- ✅ 自动备份原始代码
+- ✅ 一键恢复正常模式
+- ⚠️ 可能导致卡住或跳过剧情
+
+### 详细说明
+
+查看 `enable_noclip.md` 了解：
+
+- 三种实现方法
+- 手动修改源代码
+- 按键切换模式
+- 技术细节
 
 ---
 
